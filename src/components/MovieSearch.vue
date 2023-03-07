@@ -21,7 +21,8 @@
           .get('https://api.themoviedb.org/3/search/movie', {
             params: {
               api_key: '86266cf9d1624b84396ef30960961674',
-              query: this.searchText
+              query: this.searchText,
+              language: 'it-IT'
             }
           })
           .then(response => {

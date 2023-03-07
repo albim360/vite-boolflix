@@ -1,23 +1,30 @@
 <template>
   <div>
-    <app-header />
-    <app-main />
-    <app-footer />
+    <MovieSearch v-on:search="onSearch" />
+    <AppMain :movies="movies" />
   </div>
 </template>
 
 <script>
-import AppHeader from './components/AppHeader.vue';
+import MovieSearch from './components/MovieSearch.vue';
 import AppMain from './components/AppMain.vue';
-import AppFooter from './components/AppFooter.vue';
-import MovieSearch from './components/MovieSearch.vue'
+import axios from 'axios';
 
 export default {
+  name: 'App',
   components: {
-    AppHeader,
-    AppMain,
-    AppFooter,
-    MovieSearch
+    MovieSearch,
+    AppMain
+  },
+  data() {
+    return {
+      movies: []
+    }
+  },
+  methods: {
+    onSearch(results) {
+      this.movies = results;
+    }
   }
-}
+};
 </script>

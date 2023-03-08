@@ -1,7 +1,7 @@
 <template>
   <div>
     <MovieSearch v-on:search="onSearch" />
-    <AppMain :movies="movies" />
+    <AppMain :movies="movies" :mediaList="mediaList" />
   </div>
 </template>
 
@@ -18,12 +18,14 @@ export default {
   },
   data() {
     return {
-      movies: []
+      movies: [],
+      mediaList: []
     }
   },
   methods: {
     onSearch(results) {
       this.movies = results;
+      this.mediaList = results.concat(this.mediaList);
     }
   }
 };

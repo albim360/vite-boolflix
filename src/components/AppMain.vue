@@ -1,11 +1,12 @@
 <template>
     <main>
       <ul>
-        <li v-for="movie in movies" :key="movie.id">
-          <h2>{{ movie.title }}</h2>
-          <p><strong>Titolo originale:</strong> {{ movie.original_title }}</p>
-          <p><strong>Lingua:</strong> <span class="flag-icon flag-icon-{{ movie.original_language }}"></span></p>
-          <p><strong>Voto:</strong> {{ movie.vote_average }}</p>
+        <li v-for="media in mediaList" :key="media.id">
+          <h2>{{ media.media_type === 'tv' ? media.name : media.title }}</h2>
+          <p><strong>Titolo originale:</strong> {{ media.media_type === 'tv' ? media.original_name : media.original_title }}</p>
+          <p v-if="media.media_type === 'movie'"><strong>Lingua:</strong> {{ media.original_language }}</p>
+          <p v-if="media.media_type === 'tv'"><strong>Lingua:</strong> {{ media.original_language || media.origin_country[0] }}</p>
+          <p><strong>Voto:</strong> {{ media.vote_average }}</p>
         </li>
       </ul>
     </main>
@@ -15,7 +16,7 @@
   export default {
     name: 'AppMain',
     props: {
-      movies: {
+      mediaList: {
         type: Array,
         required: true
       }

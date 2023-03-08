@@ -17,4 +17,11 @@
     }
   };
   </script>
+
+  <style>
+  header {
+    background-color: black;
+    min-height: 60px;
+  }
+</style>
   

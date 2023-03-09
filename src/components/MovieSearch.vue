@@ -58,7 +58,7 @@
     position: fixed;
     z-index: 999;
     width: 100%;
-    margin-bottom: 20px;
+    top: 0;
   }
   
   .movie-search img {

@@ -19,7 +19,8 @@
     "bootstrap": "^5.2.3",
     "flag-icon-css": "^4.1.7",
     "flag-icons": "^6.6.6",
-    "vue": "^3.2.45"
+    "vue": "^3.2.45",
+    "vue-carousel": "^0.18.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",

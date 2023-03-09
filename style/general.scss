@@ -8,8 +8,21 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-/** PER LA BANDIERA INGLESE/AMERICANA **/
+ul,
+ol,
+li,
+menu {
+    list-style: none;
+}
 
 .fi-en {
     background-image: url(../src/assets/us.svg);
+}
+
+.fi-ko {
+    background-image: url(../src/assets/ko.png);
+}
+
+.fi-ja {
+    background-image: url(../src/assets/jp.svg);
 }

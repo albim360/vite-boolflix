@@ -54,14 +54,27 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 20px;
+    padding: 10px 20px;
     position: fixed;
     z-index: 999;
     width: 100%;
+    margin-bottom: 20px;
   }
   
   .movie-search img {
+    width: 100px;
+    margin-left: 20px;
+    margin-right: 20px;
   }
+  
+  .col-md-6 {
+    padding-right: 5px;
+  }
+  
+  .col-md-6.text-right {
+    padding-left: 5px;
+  }
+  
 
   .form-control {
     width: 33%;

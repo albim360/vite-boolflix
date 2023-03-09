@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import '@fortawesome/fontawesome-free/css/all.css';
 import '../style/general.scss';
 import '../node_modules/flag-icon-css/css/flag-icons.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 
 // Aggiungi le icone alla libreria FontAwsome
 library.add(faSolidStar, faRegularStar);

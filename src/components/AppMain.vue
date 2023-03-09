@@ -39,8 +39,14 @@ export default {
 </script>
 
 <style>
+main {
+  background: #000;
+  color: white;
+}
+
 .star-rating {
   font-size: 24px;
   color: gold;
 }
+
 </style>

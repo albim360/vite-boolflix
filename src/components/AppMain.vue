@@ -8,10 +8,11 @@
         <img :src="'https://image.tmdb.org/t/p/w342/' + media.poster_path" alt="">
         <div class="card-details">
           <h4 class="card-title">{{ media.media_type === 'tv' ? media.name : media.title }}</h4>
-          <p><strong>Titolo originale:</strong> {{ media.media_type === 'tv' ? media.original_name : media.original_title }}</p>
-          <p v-if="media.media_type === 'movie'"><strong>Lingua:</strong> <span :class="`fi fi-${media.original_language}`"></span></p>
-          <p v-if="media.media_type === 'tv'"><strong>Lingua:</strong> <span :class="`fi fi-${media.original_language}`"></span></p>          
-          <p><strong>Voto:</strong> {{ media.vote_average }} <span class="star-rating">{{ starList(media.vote_average) }}</span></p>
+          <p><strong>Voto:</strong> <span class="star-rating" v-html="starList(media.vote_average)"></span></p>
+          <p v-if="media.media_type === 'movie'"><strong>Lingua:</strong> <span
+              :class="`fi fi-${media.original_language}`"></span></p>
+          <p v-if="media.media_type === 'tv'"><strong>Lingua:</strong> <span
+              :class="`fi fi-${media.original_language}`"></span></p>
           <div class="card-hoverable">
             <p><strong>Descrizione:</strong> {{ media.overview }}</p>
             <p><strong>Data di uscita:</strong> {{ media.release_date }}</p>
@@ -23,6 +24,8 @@
 </template>
 
 <script>
+import { faStar as faSolidStar, faStar as faRegularStar } from '@fortawesome/free-regular-svg-icons';
+
 export default {
   name: 'AppMain',
   props: {
@@ -31,17 +34,15 @@ export default {
       required: true
     }
   },
-  computed: {
-    starList() {
-      return (vote) => {
-        const maxStars = 5;
-        const roundedVote = Math.round(vote / 2); 
-        const stars = [];
-        for (let i = 1; i <= maxStars; i++) {
-          stars.push(i <= roundedVote); 
-        }
-        return stars;
-      };
+  methods: {
+    starList(vote) {
+      const maxStars = 5;
+      const roundedVote = Math.floor(vote / 2);
+      let stars = '';
+      for (let i = 1; i <= maxStars; i++) {
+        stars += i <= roundedVote ? '<i class="fas fa-star"></i>' : '<i class="far fa-star"></i>';
+      }
+      return stars;
     }
   }
 };
@@ -108,6 +109,7 @@ export default {
 .card p {
   margin-top: 0;
 }
+
 .card p {
   font-size: 14px;
   margin-bottom: 5px;
@@ -150,6 +152,10 @@ export default {
   margin-bottom: 10px;
 }
 
+.star-rating {
+  color: gold;
+}
+
 .main-container {
   background-color: black;
   margin-top: 30px;
@@ -161,5 +167,4 @@ export default {
     width: calc(50% - 10px);
   }
 }
-
 </style>
